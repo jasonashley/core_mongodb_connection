@@ -8,21 +8,18 @@ let mongodb = require("mongodb"),
 let mongoUrl = `${process.env.atlas_base_url}`;
 
 const getDb = next => {
-  mongodb.MongoClient.connect(
-    mongoUrl,
-    (err, client) => {
-      assert.equal(null, err);
+  mongodb.MongoClient.connect(mongoUrl)
+    .then(client => {
       console.log("Successfully connected to server");
       // assign the db to use here, instead of using the URL to set the db
       const db = client.db("video");
-
-      next(err, db);
-    }
-  );
+      next(db);
+    })
+    .catch(err => console.log(`error found: ${err}`));
 };
 
 let showMovieDetails = () =>
-  getDb((err, db) => {
+  getDb(db => {
     db.collection("movieDetails")
       .find({})
       .toArray((_err, docs) => {
