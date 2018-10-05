@@ -9,7 +9,7 @@ let mongoUrl = `${process.env.atlas_base_url}`;
 
 const getDb = async () => {
   try {
-    let client = await mongodb.MongoClient.connect(mongoUsrl);
+    let client = await mongodb.MongoClient.connect(mongoUrl);
     // assign the db to use here, instead of using the URL to set the db
     db = client.db("video");
     return db;
