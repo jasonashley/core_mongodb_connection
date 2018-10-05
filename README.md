@@ -2,6 +2,8 @@
 
 ## Changlog
 
+### 20181005 convert to async es7
+
 ### 20181005 convert to promise native es6
 
 ### 20181005 separate db from iteration functionality
