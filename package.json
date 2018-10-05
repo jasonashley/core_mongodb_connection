@@ -1,0 +1,20 @@
+{
+  "name": "core_drive_connnection_mongodb",
+  "version": "1.0.0",
+  "description": "core app to validate connection with atlas version of mongdb",
+  "main": "app.js",
+  "scripts": {
+    "start":"node src/app.js",
+    "format":"prettier --write \"src/**/*.{js,jsx,css,json}\""
+  },
+  "keywords": [],
+  "author": "Jason Ashley",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "mongodb": "^3.0.10"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
+}
