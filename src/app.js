@@ -1,16 +1,18 @@
-let database = require("./data/database")
+let database = require("./data/database");
 
-let showMovieDetails = () =>
-  database.getDb()
-    .then(db => {
-      db.collection("movieDetails")
-        .find({})
-        .toArray((_err, docs) => {
-          docs.forEach(doc => {
-            console.log(doc.title);
-          });
-        });
-    })
-    .catch(err => "error is " + err);
+let showMovieDetails = async () => {
+  let theDb = await database.getDb("video");
+  let docs = await theDb.db
+    .collection("movieDetails")
+    .find({})
+    .toArray();
+  return docs;
+};
 
-showMovieDetails();
+showMovieDetails()
+  .then(docs => {
+    docs.forEach(doc => {
+      console.log(doc.title);
+    });
+  })
+  .catch(err => console.log(err));
