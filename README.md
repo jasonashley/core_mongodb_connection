@@ -2,7 +2,17 @@
 
 ## Changlog
 
-### 20181005 refactor: database stands alone in its own directory `./data/database/`
+### 20181006
+
+- refactor: 
+  - db
+    - accepts arg of what db to connect to
+    - returns db connector as an object
+  - app query
+    - is async
+    - returns results, separation of concers, one part to query and get results. The other to take results and process as desired.
+
+### 20181005 : database stands alone in its own directory `./data/database/`
 
 ### 20181005 convert to async es7
 
